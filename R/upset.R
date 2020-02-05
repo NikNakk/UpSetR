@@ -122,7 +122,7 @@ upset <- function(data, nsets = 5, nintersects = 40, sets = NULL, keep.order = F
                   decreasing = c(TRUE, FALSE), show.numbers = "yes", number.angles = 0, group.by = "degree", cutoff = NULL,
                   queries = NULL, query.legend = "none", shade.color = "gray88", shade.alpha = 0.25, matrix.dot.alpha =0.5,
                   empty.intersections = NULL, color.pal = 1, boxplot.summary = NULL, attribute.plots = NULL, scale.intersections = "identity",
-                  scale.sets = "identity", text.scale = 1, set_size.angles = 0 , set_size.show = FALSE, set_size.numbers_size = NULL, set_size.scale_max = NULL) {
+                  scale.sets = "identity", text.scale = 1, set_size.angles = 0, set_size.show = FALSE, set_size.numbers_size = NULL, set_size.scale_max = NULL) {
 
   startend <- FindStartEnd(data)
   first.col <- startend[1]
@@ -216,7 +216,7 @@ upset <- function(data, nsets = 5, nintersects = 40, sets = NULL, keep.order = F
     Matrix_col <- intersects(QuerieInterData, Intersection, New_data, first.col, Num_of_set,
                              All_Freqs, expression, Set_names, palette)
     Element <- SeperateQueries(queries, 1, palette)
-    EBar_data <-ElemBarDat(Element, New_data, first.col, expression, Set_names,palette, All_Freqs)
+    EBar_data <- ElemBarDat(Element, New_data, first.col, expression, Set_names,palette, All_Freqs)
   }
   else{
     Matrix_col <- NULL

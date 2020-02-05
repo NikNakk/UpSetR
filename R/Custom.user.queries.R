@@ -1,8 +1,9 @@
 ## Apply custom functions passed into queries and generate list of data sets from these functions
+#' @importFrom 
 customQueries <- function(data, custom, names){
   data_sets <- list()
   dataAndrow <- list(data, 1)
-  if(length(custom) == 0){
+  if (length(custom) == 0){
     return(NULL)
   }
   for(i in 1:length(custom)){
@@ -27,7 +28,7 @@ customQueriesBar <- function(cust_data, sets,bar_data,custom){
     return(NULL)
   }
   for(i in 1:length(cust_data)){
-    cust_data[[i]] <- count(cust_data[[i]][sets])
+    cust_data[[i]] <- dplyr::add_count(cust_data[[i]][sets], !!!rlang::syms(sets))
     colnames(cust_data[[i]])[num] <- "freq2"
     cust_data[[i]] <- cust_data[[i]][!(rowSums(cust_data[[i]][ ,1:length(sets)]) == 0), ]
     setup[[i]] <- merge(cust_data[[i]], bar_data, by = sets)
